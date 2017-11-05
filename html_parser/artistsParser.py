@@ -30,8 +30,6 @@ def scrapeArtists(ag):
 
 	arts = soup.find('div', class_="col-sm-6 text-center artist-col")
 	for link in arts.find_all('a'):
-		# artist_name = 
-		# print(link.get('href').encode('UTF8'), link.string.encode('UTF8'))
 		artists_dict["/" + link.get('href').encode('UTF8')] = link.string.encode('UTF8')
 
 	return artists_dict
