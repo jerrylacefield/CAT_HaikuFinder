@@ -36,3 +36,10 @@ CREATE TABLE Errors (
 	FOREIGN KEY (song_link) REFERENCES Songs(song_link)
 		ON DELETE NO ACTION
 );
+
+CREATE TABLE ArtistGrouping (
+	group_link VARCHAR(256),
+	curr_working BOOLEAN,
+	is_done BOOLEAN,
+	PRIMARY KEY (group_link)
+);
