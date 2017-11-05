@@ -18,8 +18,8 @@ def buildSongs(addr):
 
 def scrapeSongs(sg):
 	songs_dict = {}
-
-	artist_link = "https://www.azlyrics.com/a/aaronlewis.html"
+	
+	artist_link = sg.getSongsGroupLink()
 	# baseURL = sg.getSongsGroupLink()
 	headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 6.0; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0' }
 
@@ -28,10 +28,11 @@ def scrapeSongs(sg):
 	source = soup.prettify()
 
 	source = source.encode('utf8').replace("<br>", "<br/>").replace("</br>", "")
-
 	songs = soup.find('div', id="listAlbum")
-	for child in songs.children:
-		songs2 = songs.find_all('a')
+	for link in songs.find_all('a'):
+		print(link)
+	# for child in songs.children:
+	# 	print(child)
 		# for link in songs2.content:
 		# 	print(link.get('href').encode('UTF8'))
 

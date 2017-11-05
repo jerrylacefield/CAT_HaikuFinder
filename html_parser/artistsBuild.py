@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup as bs
 import requests
-import artists
-import songs
+import artistsParser as artists
 
 def getNextLink():
     print("Attempting to get the link...")
