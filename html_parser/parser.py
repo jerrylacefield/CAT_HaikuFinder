@@ -20,7 +20,9 @@ def finishArtists(link):
 baseURL = "https://www.azlyrics.com"
 headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 6.0; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0' }
 
-while link = getNextLink():
+link = " "
+while link:
+	link = getNextLink()
 
 	myArtists = artists.buildArtists(baseURL + link)	# create artists object
 	print(myArtists.getArtistsGroupLink())
