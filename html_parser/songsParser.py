@@ -18,7 +18,6 @@ def buildSongs(addr):
 
 def scrapeSongs(sg, short_link):
 	songs_dict = {}
-	container = {}
 
 	artist_link = sg.getSongsGroupLink()
 	# baseURL = sg.getSongsGroupLink()
@@ -31,19 +30,16 @@ def scrapeSongs(sg, short_link):
 
 	source = source.encode('utf8').replace("<br>", "<br/>").replace("</br>", "")
 
-	try:
+	# try:
 		songs = soup.find('div', id="listAlbum")
 		# songs = soup.find('div', class_="col-xs-12 col-md-6 text-center")
 		for link in songs.find_all('a', id=""):
 			song_link = ink.get('href').encode('UTF8').replace("..","")
 			songs_dict[song_link] = {}
-			print(songs_dict)
 			songs_dict[song_link]['artist_link'] = short_link.encode('UTF8')
-			print(songs_dict)
 			songs_dict[song_link]['song_title'] = link.string.encode('UTF8')
-			print(songs_dict)
 
-	except:
-		pass
+	# except:
+	# 	pass
 
 	return songs_dict
