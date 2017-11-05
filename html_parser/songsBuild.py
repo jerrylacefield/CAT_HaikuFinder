@@ -33,7 +33,7 @@ while link:
 	print("songs page scraped for " + link)
 
 	for key in songs_dict:
-		updateSongsByArtist(songs_dict[key][artist_link], key, songs_dict[key][song_title])
+		print(key, songs_dict[key])
+		# updateSongsByArtist(songs_dict[key][artist_link], key, songs_dict[key][song_title])
 
 	print("songs group page scraped for " + link + "...")
-	link =""
