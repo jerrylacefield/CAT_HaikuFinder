@@ -2,8 +2,6 @@ from bs4 import BeautifulSoup as bs
 import requests
 
 class ArtistsGroup():
-	artists = {}
-
 	def __init__(self, addr):
 		self.address = addr
 
@@ -18,10 +16,10 @@ def createArtists(addr):
 
 	return a
 
-def scrapeArtists():
+def scrapeArtists(ag):
 	artists_dict = {}
 
-	baseURL = "https://www.azlyrics.com/a.html"
+	baseURL = ag.getArtistsGroupLink()
 	headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 6.0; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0' }
 
 	page = requests.get(baseURL, headers=headers)
@@ -36,5 +34,4 @@ def scrapeArtists():
 		# print(link.get('href').encode('UTF8'), link.string.encode('UTF8'))
 		artists_dict[link.get('href').encode('UTF8')] = link.string.encode('UTF8')
 
-	for key in artists_dict:
-		print(key + " --> " + artists_dict[key])
+	return artists_dict
