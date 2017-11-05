@@ -34,10 +34,11 @@ def scrapeSongs(sg, short_link):
 		songs = soup.find('div', id="listAlbum")
 		# songs = soup.find('div', class_="col-xs-12 col-md-6 text-center")
 		for link in songs.find_all('a', id=""):
-			container["artist_link"] = short_link.encode('UTF8')
-			container["song_title"] = link.string.encode('UTF8')
+			songs_dict[link.get('href').encode('UTF8').replace("..","")] = {}
+			songs_dict[song_link]["artist_link"] = short_link.encode('UTF8')
+			songs_dict[song_link]["song_title"] = link.string.encode('UTF8')
 
-			songs_dict[link.get('href').encode('UTF8').replace("..","")] = container
+
 
 	except:
 		pass
