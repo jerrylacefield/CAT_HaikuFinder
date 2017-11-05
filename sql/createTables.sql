@@ -37,7 +37,7 @@ CREATE TABLE Errors (
 		ON DELETE NO ACTION
 );
 
-CREATE TABLE ArtistGrouping (
+CREATE TABLE Groups (
 	group_link VARCHAR(256),
 	curr_working BOOLEAN,
 	is_done BOOLEAN,
