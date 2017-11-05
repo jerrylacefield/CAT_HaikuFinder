@@ -11,7 +11,7 @@ class ArtistsGroup():
 	def getArtistsGroupLink(self):
 		return self.address
 
-def createArtists(addr):
+def buildArtists(addr):
 	a = ArtistsGroup(addr)
 
 	return a
@@ -32,6 +32,6 @@ def scrapeArtists(ag):
 	for link in arts.find_all('a'):
 		# artist_name = 
 		# print(link.get('href').encode('UTF8'), link.string.encode('UTF8'))
-		artists_dict[link.get('href').encode('UTF8')] = link.string.encode('UTF8')
+		artists_dict["/" + link.get('href').encode('UTF8')] = link.string.encode('UTF8')
 
 	return artists_dict
