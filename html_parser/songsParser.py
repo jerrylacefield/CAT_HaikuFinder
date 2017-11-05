@@ -43,7 +43,7 @@ def scrapeSongs(sg, short_link):
 			songs_dict[song_link]['song_title'] = link.string.encode('UTF8')
 			print(songs_dict)
 
-		return songs_dict
-
 	except:
 		pass
+
+	return songs_dict
